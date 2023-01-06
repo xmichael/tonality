@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2 # Requried will all actions
-    - run: ./gradlew build
+    - run: gradle setupTonalityDependencies
+    - run: gradle build
     
     - uses: actions/upload-artifact@v3
-    with:
-      name: build-reports
-      path: app/build/reports
+      with:
+        name: build-reports
+        path: app/build/reports
     
     - uses: actions/upload-artifact@v3
       with:
